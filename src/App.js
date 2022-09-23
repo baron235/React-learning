@@ -1,3 +1,4 @@
+import React from "react";
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
@@ -24,24 +25,18 @@ function App() {
   ];
 
   return (
-    <div>
+    <>
       <h2> Let's get started!</h2>
-      <ExpenseItem
-        title={expenses[0].title}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[2].title}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      ></ExpenseItem>
-    </div>
+      {expenses.map(({id, title, date, amount},index)=>
+        (id === "e3" || id === "e4") &&<ExpenseItem
+        key={index}
+        title={title}
+        amount={amount}
+        date={date}
+      />
+      )}
+
+    </>
   );
 }
 
